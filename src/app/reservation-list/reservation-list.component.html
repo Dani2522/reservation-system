@@ -1,1 +1,26 @@
-<p>reservation-list works!</p>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" name="date" [(ngModel)]="reservation.date" required>
+        </div>
+        <div>
+            <label for="starTime">Hora de Inicio</label>
+            <input type="time" id="starTime" name="date" [(ngModel)]="reservation.starTime" required>
+        </div>
+        <div>
+        <label for="clientName">Nombre del Cliente:</label>
+        <input type="text" id="clientName" name="clientName" [(ngModel)]="reservation.clientName" required>
+        </div>
+        <div>
+        <label for="status">Tipo de Reserva</label>
+            <option value=""> Terapia Individual</option>
+            <option value="confirmed">Terapia Familiar</option>
+            <option value="cancelled">Terapia de Pareja</option>
+        </div>
+        <div>
+        <label for="date">Fecha de actualización:</label>
+        <input type="date" id="upDate" name="upDate" [(ngModel)]="reservation.date" required>
+        </div>
+        <button type="submit">Crear Reserva</button>
+    </form>
+

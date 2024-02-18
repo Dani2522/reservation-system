@@ -16,9 +16,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations:[
-    NavBarComponent
+  
   ],
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes),
+    NavBarComponent,
+    LogInComponent],
+  exports: [RouterModule],
+  providers: [],
+  bootstrap:[]
 })
 export class AppRoutingModule { }
