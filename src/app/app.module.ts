@@ -5,6 +5,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { httpInterceptorProviders } from './helpers/auth.interceptor';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +24,7 @@ const routes: Routes = [
     NavBarComponent,
     LogInComponent],
   exports: [RouterModule],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap:[]
 })
 export class AppRoutingModule { }

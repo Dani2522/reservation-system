@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -13,12 +14,20 @@ export class LogInComponent {
     username: '',
     password: ''
   };
+  isLoggedin = false;
+  isLoginFailed = false;
+  errorMessage = '';
+
+  constructor(private authService: AuthService) {}
 
   onSubmit() {
-    // Implementa lógica de inicio de sesión aquí usando this.user
-    console.log('Usuario:', this.user.username);
-    console.log('Contraseña:', this.user.password);
-    // Puedes enviar los datos al backend desde aquí
+    const {username, password} = this.user;
+
+    this.authService.login(username, password).subscribe({
+      next: data => {
+        console.log(data)
+      }
+    })
   }
 }
 
